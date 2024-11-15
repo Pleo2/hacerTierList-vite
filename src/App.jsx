@@ -1,14 +1,12 @@
-
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Header } from './components/layout/Header/Header'
 
 function App() {
 
   return (
     <>
-      <div>
-        
+      <div className='antialiased md:w-[768px] lg:w-[1040px] m-auto px-6'>
+        <Header/> 
       </div>
     </>
   )
