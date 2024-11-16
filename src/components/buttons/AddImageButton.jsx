@@ -1,9 +1,11 @@
-import { ImageIcon } from "@radix-ui/react-icons";
+import { CodeSandboxLogoIcon, ImageIcon } from "@radix-ui/react-icons";
 import { useContext } from "react";
 import { ImagesContext } from "../../context/ImagesContext";
+import { useState } from "react";
 
 
 export const AddImageButton = () => {
+
     const { addImagesToImagesSection } = useContext(ImagesContext);
 
     function handleImageChange(event) {
@@ -11,12 +13,13 @@ export const AddImageButton = () => {
         if (!files) return;
         for (let i = 0; i < files.length; i++) {
             const reader = new FileReader();
+            reader.readAsDataURL(files[i]);
             reader.onload = (e) => {
                 if (reader.DONE) {
-                    addImagesToImagesSection(e.target?.result);
+                    addImagesToImagesSection(e.target.result);
                 }
             };
-            reader.readAsDataURL(files[i]);
+      
         }
     }
 

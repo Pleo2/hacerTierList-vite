@@ -15,11 +15,22 @@ export const ImagesContextProvider = ({
 	children,
 }) => {
 	const [images, setImages] = useState([[],[],[],[],[],[]]);
-	const [activeId, setActiveId ] = useState(null);
+	const [activeId, setActiveId] = useState(null);
+	console.log(images)
 
 	const addImagesToImagesSection = (image) => {
-		if (!images.includes(image)) {
-			setImages((prev) => replaceArrayInArray(prev, prev[5].push(toString(image)), 5));
+		if (!images[5].includes(image)) {
+			const arrayNew = [...images[5], image]
+			setImages((prev) => {
+				return [
+					prev[0],
+					prev[1],
+					prev[2],
+					prev[3],
+					prev[4],
+					arrayNew
+				]
+			});
 		}
 	}
 
