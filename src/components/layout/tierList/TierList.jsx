@@ -1,7 +1,7 @@
 "use client";
 
-import { useContext } from "react";
-import { TierListContext } from "../../context/TierListContext";
+// import { useContext } from "react";
+
 // import { ContentEditableLetter } from "../contentEditableLetter/contentEditableLetter";
 // import { SortableSection } from "../dnd/sortableSection";
 // import type { DragStartEvent } from "@dnd-kit/core";
@@ -11,7 +11,7 @@ import { ContentEditableText } from "./ContentEditableText";
 
 
 export const TierList = () => {
-    const { images, setImages, activeId, setActiveId } = useContext(TierListContext);
+    // const { images, setImages, activeId, setActiveId } = useContext(TierListContext);
 
     // const sensors = useSensors(
     //     useSensor(PointerSensor),
@@ -44,7 +44,7 @@ export const TierList = () => {
                 className="border-2 border-gray-500 flex flex-col bg-gray-200 dark:bg-gray-800 mb-6 w-full"
             >
 
-                {
+                {/*
                     images?.map((imageRow, index) => {
                         const { name, color } = getRowData(index)
 
@@ -53,54 +53,54 @@ export const TierList = () => {
                                 <aside className={`${color} flex justify-center text-center items-center font-bold min-h-20 min-w-20 max-w-28 text-wrap p-4`}>
                                     {<ContentEditableText category={name} />}
                                 </aside>
-                                {/* <SortableSection idDroppable={name} key={name} images={imageRow as string[]} sensors={sensors} handleDragEnd={handleDragEnd} typeColision={closestCenter} /> */}
+                                { <SortableSection idDroppable={name} key={name} images={imageRow as string[]} sensors={sensors} handleDragEnd={handleDragEnd} typeColision={closestCenter} /> }
                             </div>
                         )
                     })
-                }
+                */}
             </section>
         </>
     );
 
-    function replaceArrayInArray(myArray, modifiedArray, index) {
-        const newArray = [...myArray]; // Crea una copia del array original
-        newArray[index] = modifiedArray; // Reemplaza el array en la posición indicada
-        return newArray;
-    }
+    // function replaceArrayInArray(myArray, modifiedArray, index) {
+    //     const newArray = [...myArray]; // Crea una copia del array original
+    //     newArray[index] = modifiedArray; // Reemplaza el array en la posición indicada
+    //     return newArray;
+    // }
 
-    function handleDragEnd(event) {
-        const { active, over } = event;
-        if (over && active.id !== over.id) {
+    // function handleDragEnd(event) {
+    //     const { active, over } = event;
+    //     if (over && active.id !== over.id) {
 
-            const activeIndex = images?.findIndex((rowImages) => rowImages.includes(active.id))
+    //         const activeIndex = images?.findIndex((rowImages) => rowImages.includes(active.id))
 
-            if (images) {
-                const oldIndex = images[activeIndex].indexOf(active.id);
-                console.log("oldIndex", oldIndex);
+    //         if (images) {
+    //             const oldIndex = images[activeIndex].indexOf(active.id);
+    //             console.log("oldIndex", oldIndex);
 
-                const newIndex = images[activeIndex].indexOf(over.id);
-                console.log("newIndex", newIndex);
+    //             const newIndex = images[activeIndex].indexOf(over.id);
+    //             console.log("newIndex", newIndex);
 
-                if (oldIndex === -1) {
-                    return
-                }
+    //             if (oldIndex === -1) {
+    //                 return
+    //             }
 
-                if (newIndex !== -1 && activeIndex !== -1 && activeIndex) {
-                    const newArr = arrayMove(images[activeIndex], oldIndex, newIndex);
-                    setImages(replaceArrayInArray(images, newArr, activeIndex))
-                }
+    //             if (newIndex !== -1 && activeIndex !== -1 && activeIndex) {
+    //                 const newArr = arrayMove(images[activeIndex], oldIndex, newIndex);
+    //                 setImages(replaceArrayInArray(images, newArr, activeIndex))
+    //             }
 
-            }
-            // cambiar las posiciones del array 
-            // retornar el setImages del array
+    //         }
+    //         // cambiar las posiciones del array 
+    //         // retornar el setImages del array
 
-        }
-    }
+    //     }
+    // }
 
-    function handleDragStart(event) {
-        const { active } = event
-        setActiveId(active.id);
-    }
+    // function handleDragStart(event) {
+    //     const { active } = event
+    //     setActiveId(active.id);
+    // }
 
 
 

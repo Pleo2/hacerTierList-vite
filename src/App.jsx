@@ -1,17 +1,25 @@
 import './App.css'
+import { ButtonSection } from './components/layout/buttonSection/ButtonSection'
 import { Header } from './components/layout/Header/Header'
-import { TierList } from './components/tierList/TierList'
-import { TierListContextProvider } from './context/TierListContext'
+import { ImagesSection } from './components/layout/imagesSection/ImagesSection'
+import { TierList } from './components/layout/tierList/TierList'
+
+
+// contexts 
+
+import { ImagesContextProvider } from './context/ImagesContext'
 
 function App() {
 
   return (
     <>
       <div className='antialiased md:w-[768px] lg:w-[1040px] m-auto px-6'>
-        <TierListContextProvider>
+        <ImagesContextProvider>
           <Header />
           <TierList />
-        </TierListContextProvider>
+          <ButtonSection />
+          <ImagesSection/>
+        </ImagesContextProvider>
       </div>
     </>
   )

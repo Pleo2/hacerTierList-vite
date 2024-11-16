@@ -1,4 +1,4 @@
-import { useContentEditable } from "../../hooks/useContentEditable"
+import { useContentEditable } from "../../../hooks/useContentEditable"
 import ContentEditable from "react-contenteditable"
 
 
