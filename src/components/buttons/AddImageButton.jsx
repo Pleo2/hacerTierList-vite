@@ -12,9 +12,7 @@ export const AddImageButton = () => {
 			const reader = new FileReader();
 			reader.readAsDataURL(files[i]);
 			reader.onload = (e) => {
-				if (reader.DONE) {
-					addImagesToImagesSection(e.target.result);
-				}
+				addImagesToImagesSection(e.target.result);
 			};
 		}
 	}

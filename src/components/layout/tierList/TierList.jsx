@@ -1,6 +1,5 @@
-"use client";
-
-// import { useContext } from "react";
+import { ImagesContext } from "../../../context/ImagesContext";
+import { useContext } from "react";
 
 // import { ContentEditableLetter } from "../contentEditableLetter/contentEditableLetter";
 // import { SortableSection } from "../dnd/sortableSection";
@@ -10,7 +9,7 @@
 import { ContentEditableText } from "./ContentEditableText";
 
 export const TierList = () => {
-	// const { images, setImages, activeId, setActiveId } = useContext(TierListContext);
+	const { images } = useContext(ImagesContext);
 
 	// const sensors = useSensors(
 	//     useSensor(PointerSensor),
@@ -39,8 +38,8 @@ export const TierList = () => {
 	return (
 		<>
 			<section className="border-2 border-gray-500 flex flex-col bg-gray-200 dark:bg-gray-800 mb-6 w-full">
-				{/*
-                    images?.map((imageRow, index) => {
+				
+                    {images.slice(0, 5)?.map((imageRow, index) => {
                         const { name, color } = getRowData(index)
 
                         return (
@@ -48,11 +47,13 @@ export const TierList = () => {
                                 <aside className={`${color} flex justify-center text-center items-center font-bold min-h-20 min-w-20 max-w-28 text-wrap p-4`}>
                                     {<ContentEditableText category={name} />}
                                 </aside>
-                                { <SortableSection idDroppable={name} key={name} images={imageRow as string[]} sensors={sensors} handleDragEnd={handleDragEnd} typeColision={closestCenter} /> }
+
+								{imageRow ? imageRow.map((img) => <img key={img} src={img} alt="picture, tierList"  className="w-20 h-20 aspect-square"/>) : <></>}
+                                {/* { <SortableSection idDroppable={name} key={name} images={imageRow as string[]} sensors={sensors} handleDragEnd={handleDragEnd} typeColision={closestCenter} /> } */}
                             </div>
                         )
-                    })
-                */}
+                    })}
+               
 			</section>
 		</>
 	);
