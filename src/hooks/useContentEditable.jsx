@@ -1,18 +1,15 @@
 import { useState, useCallback } from "react";
 
 export function useContentEditable(initialValue) {
-    const [content, setContent] = useState(initialValue);
+	const [content, setContent] = useState(initialValue);
 
-    const onContentChange = useCallback(
-        (evt) => {
-            setContent(evt.currentTarget.innerHTML);
-        },
-        [],
-    );
+	const onContentChange = useCallback((evt) => {
+		setContent(evt.currentTarget.innerHTML);
+	}, []);
 
-    return {
-        content,
-        setContent,
-        onContentChange
-    }
+	return {
+		content,
+		setContent,
+		onContentChange,
+	};
 }

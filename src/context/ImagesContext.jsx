@@ -1,38 +1,20 @@
-
-
-import {
-	createContext,
-	useState,
-} from "react";
-
-import replaceArrayInArray from "../utils/replaceArrayInArray";
-
-
+import { createContext, useState } from "react";
 
 export const ImagesContext = createContext(null);
 
-export const ImagesContextProvider = ({
-	children,
-}) => {
-	const [images, setImages] = useState([[],[],[],[],[],[]]);
+export const ImagesContextProvider = ({ children }) => {
+	const [images, setImages] = useState([[], [], [], [], [], []]);
 	const [activeId, setActiveId] = useState(null);
-	console.log(images)
+	console.log(images);
 
 	const addImagesToImagesSection = (image) => {
 		if (!images[5].includes(image)) {
-			const arrayNew = [...images[5], image]
+			const arrayNew = [...images[5], image];
 			setImages((prev) => {
-				return [
-					prev[0],
-					prev[1],
-					prev[2],
-					prev[3],
-					prev[4],
-					arrayNew
-				]
+				return [prev[0], prev[1], prev[2], prev[3], prev[4], arrayNew];
 			});
 		}
-	}
+	};
 
 	const cleanImages = () => value?.setImages([]);
 
@@ -41,15 +23,11 @@ export const ImagesContextProvider = ({
 		setImages,
 		addImagesToImagesSection,
 		cleanImages,
-		activeId, 
-		setActiveId
+		activeId,
+		setActiveId,
 	};
 
 	return (
-		<ImagesContext.Provider value={value}>
-			{children}
-		</ImagesContext.Provider>
+		<ImagesContext.Provider value={value}>{children}</ImagesContext.Provider>
 	);
-
 };
-
