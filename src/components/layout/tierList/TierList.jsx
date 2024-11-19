@@ -1,23 +1,11 @@
 import { ImagesContext } from "../../../context/ImagesContext";
 import { useContext } from "react";
-
-// import { ContentEditableLetter } from "../contentEditableLetter/contentEditableLetter";
-// import { SortableSection } from "../dnd/sortableSection";
-// import type { DragStartEvent } from "@dnd-kit/core";
-// import { PointerSensor, useSensor, useSensors, closestCenter, KeyboardSensor } from "@dnd-kit/core";
-// import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+import { Droppable } from "react-beautiful-dnd";
 import { ContentEditableText } from "./ContentEditableText";
 
 export const TierList = () => {
 	const { images } = useContext(ImagesContext);
 	const ROWS = Array(5).fill(0);
-
-	// const sensors = useSensors(
-	//     useSensor(PointerSensor),
-	//     useSensor(KeyboardSensor, {
-	//         coordinateGetter: sortableKeyboardCoordinates,
-	//     })
-	// );
 
 	const getRowData = (index) => {
 		switch (index) {
@@ -35,46 +23,53 @@ export const TierList = () => {
 				return { color: "bg-transparent", name: "XXX" };
 		}
 	};
-	
+
 	return (
 		<>
 			<section className="border-2 border-gray-500 flex flex-col bg-gray-200 dark:bg-gray-800 mb-6 w-full">
-				
-				{	
-					ROWS.map((_, index) => {
- 						const { name, color } = getRowData(index);
-						return (
-							 <div className="flex border-b  border-gray-500 last:border-hidden" key={name}>
-                                <aside className={`${color} flex justify-center text-center items-center font-bold min-h-20 min-w-20 max-w-28 text-wrap p-4`}>
-                                    {<ContentEditableText category={name} />}
-                                </aside>
+				{ROWS.map((_, index) => {
+					const { name, color } = getRowData(index);
+					return (
+						<div
+							className="flex border-b  border-gray-500 last:border-hidden"
+							key={name}
+						>
+							<aside
+								className={`${color} flex justify-center text-center items-center font-bold min-h-20 min-w-20 max-w-28 text-wrap p-4`}
+							>
+								{<ContentEditableText category={name} />}
+							</aside>
+							<Droppable
+								droppableId={`Row-${name}`}
+								type="IMAGE"
+								direction="horizontal"
+								isCombineEnabled={false}
+							>
+								{(provided) => (
+									<section
+										className="flex w-full"
+										ref={provided.innerRef}
+										{...provided.droppableProps}
+									>
+										{images.map((imagen) => {
+											if (imagen.rowId === index) {
+												return (
+													<img
+														key={imagen.img}
+														src={imagen.img}
+														alt="picture, tierList"
+														className="w-20 h-20 aspect-square"
+													/>
+												);
+											}
+										})}
+									</section>
+								)}
+							</Droppable>
+						</div>
+					);
+				})}
 
-								{images.map((imagen) => {
-									if(imagen.rowId === index) {
-										return <img key={imagen.img} src={imagen.img} alt="picture, tierList"  className="w-20 h-20 aspect-square"/>
-									}
-								})}
-                            </div>
-						)
-					})
-				}
-
-
-                    {/* {images.slice(0, 5)?.map((imageRow, index) => {
-                        const { name, color } = getRowData(index)
-
-                        return (
-                            <div className="flex border-b  border-gray-500 last:border-hidden" key={name}>
-                                <aside className={`${color} flex justify-center text-center items-center font-bold min-h-20 min-w-20 max-w-28 text-wrap p-4`}>
-                                    {<ContentEditableText category={name} />}
-                                </aside>
-
-								{imageRow ? imageRow.map((img) => <img key={img} src={img} alt="picture, tierList"  className="w-20 h-20 aspect-square"/>) : <></>}
-                                 { <SortableSection idDroppable={name} key={name} images={imageRow as string[]} sensors={sensors} handleDragEnd={handleDragEnd} typeColision={closestCenter} /> }
-                            </div>
-                        )
-                    })} */}
-               
 			</section>
 		</>
 	);

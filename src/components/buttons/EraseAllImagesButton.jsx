@@ -1,6 +1,7 @@
 import { EraserIcon } from "@radix-ui/react-icons";
+import { memo } from "react";
 
-export const EraserAllImagesButton = () => {
+export const EraserAllImagesButton = memo(() => {
 	// Call to Erase All data
 
 	return (
@@ -17,4 +18,4 @@ export const EraserAllImagesButton = () => {
 			</div>
 		</>
 	);
-};
+});

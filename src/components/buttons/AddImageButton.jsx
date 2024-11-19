@@ -1,8 +1,8 @@
 import { ImageIcon } from "@radix-ui/react-icons";
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { ImagesContext } from "../../context/ImagesContext";
 
-export const AddImageButton = () => {
+export const AddImageButton = memo(() => {
 	const { addImagesToImagesSection } = useContext(ImagesContext);
 
 	function handleImageChange(event) {
@@ -31,4 +31,4 @@ export const AddImageButton = () => {
 			</label>
 		</div>
 	);
-};
+});
