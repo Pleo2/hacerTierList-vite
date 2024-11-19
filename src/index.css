@@ -46,6 +46,7 @@ body {
 	color: var(--foreground);
 	background: var(--background);
 	font-family: Helvetica, sans-serif;
+	justify-content: center;
 }
 
 @layer utilities {

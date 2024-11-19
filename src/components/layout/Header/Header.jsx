@@ -12,9 +12,9 @@ const ICON_SIZE = 22;
 export const Header = () => {
 	return (
 		<>
-			<nav className="flex justify-between items-center w-full h-max py-4">
+			<nav className="flex justify-between items-center w-full h-max mb-6">
 				<a href="/">
-					<img src={HeaderLogoDark} className="w-32" />
+					<img src={HeaderLogoDark} className="w-32" alt={"Picture, logo de la marca"} />
 				</a>
 
 				<section className="h-max w-max flex items-center justify-between gap-6">

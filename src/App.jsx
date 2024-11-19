@@ -1,11 +1,9 @@
-import "./App.css";
 import { ButtonSection } from "./components/layout/buttonSection/ButtonSection";
 import { Header } from "./components/layout/Header/Header";
 import { ImagesSection } from "./components/layout/imagesSection/ImagesSection";
 import { TierList } from "./components/layout/tierList/TierList";
 
 // contexts
-
 import { ImagesContextProvider } from "./context/ImagesContext";
 
 function App() {

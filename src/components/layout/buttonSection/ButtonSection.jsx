@@ -8,7 +8,7 @@ export const ButtonSection = () => {
 		<>
 			<div
 				className={`
-							flex gap-4 justify-around mb-4
+							flex gap-12 justify-center mb-4 w-1/2 m-auto
 							[&>div]:w-12 [&>div]:h-12 [&>div]:flex [&>div]:justify-center [&>div]:items-center
 							// * AddImage Button 
 							[&>div>label>svg]:w-6 [&>div>label>svg]:h-6 [&>div>label>svg]:cursor-pointer 

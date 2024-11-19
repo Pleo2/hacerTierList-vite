@@ -5,17 +5,19 @@ export const ImagesSection = () => {
 	const { images } = useContext(ImagesContext);
 
 	return (
-		<div className="border-gray-800 border-2 w-full min-h-80 ">
-			{images[5].length > 0 ? (
-				images[5].map((item) => {
-					return (
-						<img
-							key={item.length}
-							className="w-20 h-20 aspect-square"
-							src={item}
-							alt="Picture, than your add"
-						/>
-					);
+		<div className="border-gray-800 border-2 w-full min-h-80 flex flex-wrap">
+			{images.length > 0 ? (
+				images.map((item) => {
+					if (item.rowId === 5) {
+						return (
+							<img
+								key={item.img}
+								className="w-20 h-20 aspect-square"
+								src={item.img}
+								alt="Picture, than your add"
+							/>
+						);
+					}
 				})
 			) : (
 				<></>
