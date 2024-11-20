@@ -11,7 +11,7 @@
 		-ms-user-select: none;
 		/* IE 10+ */
 
-		
+
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
@@ -49,7 +49,7 @@
 body {
 	margin: 0;
 	display: flex;
-	place-items: center;
+	place-items: start;
 	min-width: 320px;
 	min-height: 100vh;
 	color: var(--foreground);

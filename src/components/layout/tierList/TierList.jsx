@@ -11,7 +11,7 @@ export const TierList = () => {
 	const getRowData = (index) => {
 		switch (index) {
 			case 0:
-				return { color: "bg-purple text-violet-950", name: "S" };
+				return { color: "bg-purple text-backgrond", name: "⭐⭐⭐" };
 			case 1:
 				return { color: "bg-redOrange text-red-900", name: "A" };
 			case 2:
@@ -27,7 +27,7 @@ export const TierList = () => {
 
 	return (
 		<>
-			<section className="border-2 border-gray-500 flex flex-col bg-gray-200 dark:bg-gray-800 mb-6 w-full">
+			<section className="border-2 border-gray-500 flex flex-col bg-gray-200 dark:bg-[#1d1d1d] mb-6 w-full">
 				{ROWS.map((_, index) => {
 					const { name, color } = getRowData(index);
 					return (
@@ -36,7 +36,7 @@ export const TierList = () => {
 							key={name}
 						>
 							<aside
-								className={`${color} flex justify-center text-center items-center font-bold min-h-20 min-w-20 max-w-28 text-wrap p-4`}
+								className={`${color} flex justify-center text-center items-center font-bold min-h-20 min-w-24 max-w-28 text-wrap p-4`}
 							>
 								{<ContentEditableText category={name} />}
 							</aside>
