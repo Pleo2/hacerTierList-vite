@@ -1,10 +1,14 @@
 import { Draggable } from "react-beautiful-dnd"
 
-export const Image = ({item, index, provided}) => {
+export const Image = ({item, index, _provided}) => {
  return (
-		<Draggable draggableId={item.img} index={index}>
+		<Draggable key={item} draggableId={item.img} index={index}>
 			{(provided, snapshot) => (
-				<div ref={provided.innerRef} {...provided.draggableProps}>
+				<div
+					ref={provided.innerRef}
+					{...provided.dragHandleProps}
+					{...provided.draggableProps}
+				>
 					<img
 						isDragging={snapshot.isDragging}
 						{...provided.dragHandleProps}

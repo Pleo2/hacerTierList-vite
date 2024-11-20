@@ -2,6 +2,7 @@ import { ImagesContext } from "../../../context/ImagesContext";
 import { useContext } from "react";
 import { Droppable } from "react-beautiful-dnd";
 import { ContentEditableText } from "./ContentEditableText";
+import { Image } from "../../Images";
 
 export const TierList = () => {
 	const { images } = useContext(ImagesContext);
@@ -40,7 +41,7 @@ export const TierList = () => {
 								{<ContentEditableText category={name} />}
 							</aside>
 							<Droppable
-								droppableId={`Row-${name}`}
+								droppableId={`Row-${index}`}
 								type="IMAGE"
 								direction="horizontal"
 								isCombineEnabled={false}
@@ -51,66 +52,26 @@ export const TierList = () => {
 										ref={provided.innerRef}
 										{...provided.droppableProps}
 									>
-										{images.map((imagen) => {
-											if (imagen.rowId === index) {
+										{images.map((item, itemIndex) => {
+											if (item.rowId === index) {
 												return (
-													<img
-														key={imagen.img}
-														src={imagen.img}
-														alt="picture, tierList"
-														className="w-20 h-20 aspect-square"
+													<Image
+														key={item.img}
+														_provided={provided}
+														item={item}
+														index={itemIndex}
 													/>
 												);
 											}
 										})}
+										{provided.placeholder}
 									</section>
 								)}
 							</Droppable>
 						</div>
 					);
 				})}
-
 			</section>
 		</>
 	);
-
-	// function replaceArrayInArray(myArray, modifiedArray, index) {
-	//     const newArray = [...myArray]; // Crea una copia del array original
-	//     newArray[index] = modifiedArray; // Reemplaza el array en la posición indicada
-	//     return newArray;
-	// }
-
-	// function handleDragEnd(event) {
-	//     const { active, over } = event;
-	//     if (over && active.id !== over.id) {
-
-	//         const activeIndex = images?.findIndex((rowImages) => rowImages.includes(active.id))
-
-	//         if (images) {
-	//             const oldIndex = images[activeIndex].indexOf(active.id);
-	//             console.log("oldIndex", oldIndex);
-
-	//             const newIndex = images[activeIndex].indexOf(over.id);
-	//             console.log("newIndex", newIndex);
-
-	//             if (oldIndex === -1) {
-	//                 return
-	//             }
-
-	//             if (newIndex !== -1 && activeIndex !== -1 && activeIndex) {
-	//                 const newArr = arrayMove(images[activeIndex], oldIndex, newIndex);
-	//                 setImages(replaceArrayInArray(images, newArr, activeIndex))
-	//             }
-
-	//         }
-	//         // cambiar las posiciones del array
-	//         // retornar el setImages del array
-
-	//     }
-	// }
-
-	// function handleDragStart(event) {
-	//     const { active } = event
-	//     setActiveId(active.id);
-	// }
 };

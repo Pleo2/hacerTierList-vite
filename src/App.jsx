@@ -1,27 +1,62 @@
+import { useContext } from "react";
 import { ButtonSection } from "./components/layout/buttonSection/ButtonSection";
 import { Header } from "./components/layout/Header/Header";
 import { ImagesSection } from "./components/layout/imagesSection/ImagesSection";
 import { TierList } from "./components/layout/tierList/TierList";
-
+import { reorderArr } from "./utils/reorderArr";
 // contexts
-import { ImagesContextProvider } from "./context/ImagesContext";
+import { ImagesContext } from "./context/ImagesContext";
 import { DragDropContext } from "react-beautiful-dnd";
 
 function App() {
-	function onDragEnd() {
-		console.log("hello drag end")
+	const { setImages } = useContext(ImagesContext);
+
+	function onDragEnd(result) {
+		const { source, destination } = result;
+		
+		if (!destination) {
+			return;
+		}
+
+		if (
+			source.index === destination.index &&
+			source.droppableId === destination.droppableId
+		) {
+			return;
+		}
+
+		if (source.droppableId === destination.droppableId) {
+			setImages((prevImages) =>
+				reorderArr(prevImages, source.index, destination.index),
+			);
+		}
+
+		if (source.droppableId !== destination.droppableId) {
+			const rowDestination = Number.parseInt(
+				destination.droppableId.charAt(destination.droppableId.length - 1),
+			);
+			setImages((prevImages) => {
+				const newImages = [...prevImages];
+				const i = prevImages.findIndex((item) => item.img === result.draggableId);
+				if (i !== -1) {
+					newImages[i] = {
+						...newImages[i],
+						rowId: rowDestination,
+					};
+					return reorderArr(newImages, source.index, destination.index)
+				}				
+			})
+		}
 	}
 	return (
 		<>
 			<div className="antialiased md:w-[768px] lg:w-[1040px] m-auto px-6">
-				<ImagesContextProvider>
-					<Header />
-					<DragDropContext onDragEnd={onDragEnd}>
-						<TierList />
-						<ButtonSection />
-						<ImagesSection />
-					</DragDropContext>
-				</ImagesContextProvider>
+				<Header />
+				<DragDropContext onDragEnd={onDragEnd}>
+					<TierList />
+					<ButtonSection />
+					<ImagesSection />
+				</DragDropContext>
 			</div>
 		</>
 	);
