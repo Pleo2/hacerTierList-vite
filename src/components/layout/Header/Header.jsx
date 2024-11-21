@@ -14,11 +14,15 @@ export const Header = () => {
 		<>
 			<nav className="flex justify-between items-center w-full h-max my-6">
 				<a href="/">
-					<img src={HeaderLogoDark} className="w-32" alt={"Picture, logo de la marca"} />
+					<img
+						src={HeaderLogoDark}
+						className="w-32"
+						alt={"Picture, logo de la marca"}
+					/>
 				</a>
 
 				<section className="h-max w-max flex items-center justify-between gap-6">
-					<div
+					{/* <div
 						className="flex md:p-2 md:border-purple md:border-b-4
 					md:hover:bg-purple md:hover:text-foreground md:dark:hover:text-foreground"
 					>
@@ -31,9 +35,9 @@ export const Header = () => {
 						<span className="hidden md:block font-semibold">
 							Crear TierList
 						</span>
-					</div>
+					</div> */}
 
-					<div className=" md:p-2 md:border-b-4 md:border-redOrange  md:hover:bg-redOrange md:hover:text-foreground md:dark:hover:text-foreground">
+					{/* <div className=" md:p-2 md:border-b-4 md:border-redOrange  md:hover:bg-redOrange md:hover:text-foreground md:dark:hover:text-foreground">
 						<PersonIcon
 							onClick={() => console.log("helloworld")}
 							className="text-redOrange md:hidden"
@@ -41,7 +45,7 @@ export const Header = () => {
 							width={ICON_SIZE}
 						/>
 						<span className="hidden font-semibold md:block ">Usuario</span>
-					</div>
+					</div> */}
 
 					<div className=" md:p-2 md:border-b-4 md:border-green md:hover:bg-green md:dark:hover:text-foreground">
 						<MagicWandIcon
