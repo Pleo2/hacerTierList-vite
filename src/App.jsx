@@ -50,7 +50,7 @@ function App() {
 	}
 	return (
 		<>
-			<div className="antialiased md:w-[768px] lg:w-[1040px] m-auto px-6">
+			<div className="antialiased md:w-[708px] lg:w-[1028px] m-auto px-6">
 				<Header />
 				<DragDropContext onDragEnd={onDragEnd}>
 					<TierList />

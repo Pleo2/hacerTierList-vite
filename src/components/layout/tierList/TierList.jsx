@@ -32,7 +32,7 @@ export const TierList = () => {
 					const { name, color } = getRowData(index);
 					return (
 						<div
-							className="flex border-b  border-gray-500 last:border-hidden"
+							className="flex border-b border-gray-500 last:border-hidden"
 							key={name}
 						>
 							<aside
@@ -48,7 +48,7 @@ export const TierList = () => {
 							>
 								{(provided) => (
 									<section
-										className="flex w-full"
+										className="flex w-full flex-wrap"
 										ref={provided.innerRef}
 										{...provided.droppableProps}
 									>
