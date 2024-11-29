@@ -1,7 +1,7 @@
 import { ImagesContext } from "../../../context/ImagesContext";
 import { useContext } from "react";
 import { Droppable } from "react-beautiful-dnd";
-import { ContentEditableText } from "./ContentEditableText";
+import { ContentEditableText } from "../../ContentEditableText";
 import { Image } from "../../Images";
 
 export const TierList = () => {
@@ -13,9 +13,9 @@ export const TierList = () => {
 			case 0:
 				return { color: "bg-purple text-backgrond", name: "⭐⭐⭐" };
 			case 1:
-				return { color: "bg-redOrange text-red-900", name: "A" };
+				return { color: "bg-red-400 text-red-900", name: "A" };
 			case 2:
-				return { color: "bg-lightYellow text-yellow-700", name: "B" };
+				return { color: "bg-yellow-200 text-yellow-700", name: "B" };
 			case 3:
 				return { color: "bg-green text-lime-800", name: "C" };
 			case 4:

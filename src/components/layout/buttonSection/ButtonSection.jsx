@@ -1,9 +1,9 @@
 import { AddImageButton } from "../../buttons/AddImageButton";
 import { EraserAllImagesButton } from "../../buttons/EraseAllImagesButton";
 import { RestoreButton } from "../../buttons/RestoreButton";
-import { ShareButton } from "../../buttons/ShareButton";
+import { DownloadButton } from "../../buttons/DownloadButton";
 
-export const ButtonSection = () => {
+export const ButtonSection = ({downloadFn}) => {
 	return (
 		<>
 			<div
@@ -18,7 +18,7 @@ export const ButtonSection = () => {
 			>
 				<AddImageButton />
 				<RestoreButton />
-				<ShareButton />
+				<DownloadButton downloadFn={downloadFn}/>
 				<EraserAllImagesButton />
 			</div>
 		</>
