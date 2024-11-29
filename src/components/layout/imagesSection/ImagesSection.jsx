@@ -2,12 +2,16 @@ import { useContext } from "react";
 import { ImagesContext } from "../../../context/ImagesContext";
 import { Droppable} from "react-beautiful-dnd"
 import { Image } from "../../Images";
+import { useRef } from "react";
+import useDragAndDropFromDesktop from "../../../hooks/useDragAndDropFromDesktop";
 
 export const ImagesSection = () => {
+	const itemsSection = useRef(null);
 	const { images } = useContext(ImagesContext);
-
+	const {handleDragOverFromDesktop, handleDropFromDesktop, isAllowFile} = useDragAndDropFromDesktop();
+	
 	return (
-		<div className="border-gray-800 border-2 w-full min-h-80">
+		<div className="border-gray-800 border-2 w-full min-h-80 "  ref={itemsSection} onDragOver={handleDragOverFromDesktop} onDrop={handleDropFromDesktop}>
 			<Droppable
 				droppableId={"Row-5"}
 				type="IMAGE"

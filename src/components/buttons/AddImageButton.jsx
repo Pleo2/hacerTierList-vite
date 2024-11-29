@@ -1,21 +1,9 @@
 import { ImageIcon } from "@radix-ui/react-icons";
-import { useContext, memo } from "react";
-import { ImagesContext } from "../../context/ImagesContext";
+import useImagesToCreateTierListItems from "../../hooks/useImagesToCreateTierListItems";
+import { memo } from "react";
 
 export const AddImageButton = memo(() => {
-	const { addImagesToImagesSection } = useContext(ImagesContext);
-
-	function handleImageChange(event) {
-		const files = event.target.files;
-		if (!files) return;
-		for (let i = 0; i < files.length; i++) {
-			const reader = new FileReader();
-			reader.readAsDataURL(files[i]);
-			reader.onload = (e) => {
-				addImagesToImagesSection(e.target.result);
-			};
-		}
-	}
+	const {handleImageChange} = useImagesToCreateTierListItems();
 
 	return (
 		<div className="dark:bg-gray-900 bg-gray-200 border-b-4 border-purple">

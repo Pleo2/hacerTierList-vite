@@ -46,7 +46,7 @@ export const Header = () => {
 						/>
 						<span className="hidden font-semibold md:block ">Usuario</span>
 					</div> */}
-
+					
 					<div className=" md:p-2 md:border-b-4 md:border-green md:hover:bg-green md:dark:hover:text-foreground">
 						<MagicWandIcon
 							onClick={() => console.log("helloworld")}
