@@ -6,7 +6,7 @@ export const AddImageButton = memo(() => {
 	const {handleImageChange} = useImagesToCreateTierListItems();
 
 	return (
-		<div className="dark:bg-gray-900 bg-gray-200 border-b-4 border-purple">
+		<div className=" border-b-4 border-purple">
 			<label className="flex">
 				<ImageIcon className="" />
 				<input

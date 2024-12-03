@@ -22,13 +22,13 @@ function App() {
 			<div className="antialiased md:w-[708px] lg:w-[1028px] m-auto px-6">
 				<Header />
 				<DragDropContext onDragEnd={onDragEnd}>
-					<div ref={canvasToSave}>
+					<section ref={canvasToSave}>
 						<ContentEditableText
 							className={" text-5xl font-sans p-2 bg-background"}
 							category={"Titulo de la TierList"}
 						/>
 						<TierList />
-					</div>
+					</section>
 
 					<ButtonSection downloadFn={dowloadHtml} />
 					<ImagesSection />

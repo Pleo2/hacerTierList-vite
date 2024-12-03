@@ -13,9 +13,9 @@ export const TierList = () => {
 			case 0:
 				return { color: "bg-purple text-backgrond", name: "⭐⭐⭐" };
 			case 1:
-				return { color: "bg-red-400 text-red-900", name: "A" };
+				return { color: "bg-red text-[#7f1919]", name: "A" };
 			case 2:
-				return { color: "bg-yellow-200 text-yellow-700", name: "B" };
+				return { color: "bg-yellow text-[#7f7f4c]", name: "B" };
 			case 3:
 				return { color: "bg-green text-lime-800", name: "C" };
 			case 4:
@@ -27,7 +27,7 @@ export const TierList = () => {
 
 	return (
 		<>
-			<section className="border-2 border-gray-500 flex flex-col bg-gray-200 dark:bg-[#1d1d1d] mb-6 w-full">
+			<section className="border-2 border-gray-500 flex flex-col mb-6 w-full">
 				{ROWS.map((_, index) => {
 					const { name, color } = getRowData(index);
 					return (
@@ -48,7 +48,7 @@ export const TierList = () => {
 							>
 								{(provided) => (
 									<section
-										className="flex w-full flex-wrap"
+										className="flex w-full flex-wrap bg-background"
 										ref={provided.innerRef}
 										{...provided.droppableProps}
 									>

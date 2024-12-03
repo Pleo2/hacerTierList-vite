@@ -2,6 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	:root{
+		/* --background: #ededed; */
+		--foreground: #121212;
+		--yellow: #ffff99;
+		--red : #ff3333;
+		--purple: #6600ff;
+		--green: #00ff99;
+		--blue: #00ccff;
+	}
+
+	.dark {
+		--background: #121212;
+		--foreground: #ededed;
+		--yellow: #ffff99;
+		--red : #ff3333;
+		--purple: #6600ff;
+		--green: #00ff99;
+		--blue: #00ccff;
+	}
+
+	.cyberpunk {
+  		--background: #222222;
+  		--foreground: #ffffff;
+  		--yellow: #ffd700;
+  		--red: #ff4500;
+  		--purple: #800080;
+  		--green: #00ff00;
+  		--blue: #00ffff;
+	}
+
+		/* Tema 1: Ocean */
+	.ocean {
+	--background: #0077bb;
+	--foreground: #ffffff;
+	--yellow: #ffffcc;
+	--red: #ff6666;
+	--purple: #cc99ff;
+	--green: #99ffcc;
+	--blue: #66ccff;
+	}
+
+
+	/* Tema 3: Pastel Dreams */
+	.pastelDreams {
+	--background: #f2f2f2;
+	--foreground: #666666;
+	--yellow: #ffffcc;
+	--red: #ff9999;
+	--purple: #cc99ff;
+	--green: #99ffcc;
+	--blue: #99ccff;
+	}
+
+	.dark-pastelDreams {
+	--background: #121212;
+	--foreground: #666666;
+	--yellow: #ffffcc;
+	--red: #ff9999;
+	--purple: #cc99ff;
+	--green: #99ffcc;
+	--blue: #99ccff;
+	}
+
+	/* Tema 4: Cyberpunk Neon */
+	.cyberpunkNeon {
+	--background: #191919;
+	--foreground: #ffffff;
+	--yellow: #ffff00;
+	--red: #ff0055;
+	--purple: #8000ff;
+	--green: #00ff7f;
+	--blue: #00ffff;
+	}
+
+	.white-cyberpunkNeon {
+	--background: #f2f2f2;
+	--foreground: #191919;
+	--yellow: #ffff00;
+	--red: #ff0055;
+	--purple: #8000ff;
+	--green: #00ff7f;
+	--blue: #00ffff;
+	}
+
+	/* Tema 8: Soft Pink */
+	.softPink {
+	--background: #FFB6C1;
+	--foreground: #2e1414;
+	--yellow: #ffffcc;
+	--red: #ff6666;
+	--purple: #cc99ff;
+	--green: #99ffcc;
+	--blue: #99ccff;
+	}
+
+	.desertSand {
+	--background: #F5DEB3;
+	--foreground: #333333;
+	--yellow: #ffffcc;
+	--red: #ff6666;
+	--purple: #cc99ff;
+	--green: #99ffcc;
+	--blue: #99ccff;
+	}
+}
+
 :root {
 	user-select: none;
 		-webkit-user-select: none;
@@ -16,35 +123,18 @@
 	line-height: 1.5;
 	font-weight: 400;
 
-	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
-
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-
-	--background: #ededed;
-	--foreground: #121212;
-	--yellow: #ffff99;
-	--redOrange: #ff3333;
-	--purple: #6600ff;
-	--green: #00ff99;
-	--lightBlue: #00ccff;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #121212;
 		--foreground: #ededed;
-		--yellow: #ffff99;
-		--redOrange: #ff3333;
-		--purple: #6600ff;
-		--green: #00ff99;
-		--lightBlue: #00ccff;
 	}
-}
+} */
 
 body {
 	margin: 0;
@@ -52,8 +142,8 @@ body {
 	place-items: start;
 	min-width: 320px;
 	min-height: 100vh;
-	color: var(--foreground);
-	background: var(--background);
+	/* color: var(--foreground);
+	background: var(--background); */
 	font-family: Helvetica, sans-serif;
 	justify-content: center;
 }

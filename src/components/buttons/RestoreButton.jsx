@@ -26,7 +26,7 @@ export const RestoreButton = () => {
 
 	return (
 		<>
-			<div className="dark:bg-gray-900 bg-gray-200 border-b-4 border-purple">
+			<div className=" border-b-4 border-yellow">
 				<button type="button" onClick={restoreImages}>
 					<ReloadIcon />
 				</button>

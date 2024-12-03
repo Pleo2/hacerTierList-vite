@@ -1,4 +1,4 @@
-import HeaderLogoDark from "/images/headerLogoDark.webp";
+import HeaderLogoDark from "/images/icon.ico";
 
 import {
 	HamburgerMenuIcon,
@@ -16,7 +16,7 @@ export const Header = () => {
 				<a href="/">
 					<img
 						src={HeaderLogoDark}
-						className="w-32"
+						className="w-10	"
 						alt={"Picture, logo de la marca"}
 					/>
 				</a>
@@ -37,10 +37,10 @@ export const Header = () => {
 						</span>
 					</div> */}
 
-					{/* <div className=" md:p-2 md:border-b-4 md:border-redOrange  md:hover:bg-redOrange md:hover:text-foreground md:dark:hover:text-foreground">
+					{/* <div className=" md:p-2 md:border-b-4 md:border-red  md:hover:bg-red md:hover:text-foreground md:dark:hover:text-foreground">
 						<PersonIcon
 							onClick={() => console.log("helloworld")}
-							className="text-redOrange md:hidden"
+							className="text-red md:hidden"
 							height={ICON_SIZE}
 							width={ICON_SIZE}
 						/>

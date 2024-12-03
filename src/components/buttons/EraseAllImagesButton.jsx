@@ -15,7 +15,7 @@ export const EraserAllImagesButton = memo(() => {
 
 	return (
 		<>
-			<div className="dark:bg-gray-900 bg-gray-200 border-b-4 border-redOrange">
+			<div className=" border-b-4 border-red">
 				<button
 					type="button"
 					onClick={eraseImages}

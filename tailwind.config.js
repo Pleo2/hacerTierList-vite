@@ -4,16 +4,17 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: ["selector"],
   theme: {
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        lightYellow: "var(--yellow)",
-        redOrange: "var(--redOrange)",
+        yellow : "var(--yellow)",
+        red : "var(--red)",
         purple: "var(--purple)",
         green: "var(--green)",
-        blue: "var(--lightBlue)"
+        blue: "var(--blue)"
       },
     },
   },
