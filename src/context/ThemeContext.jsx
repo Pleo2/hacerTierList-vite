@@ -3,20 +3,16 @@ import { createContext, useState } from "react";
 export const ThemeContext = createContext(null);
 
 export const ThemeContextProvider = ({ children }) => {
-    const Themes = [
-					"dark",
-					"cyberpunk",
-					"ocean",
-					"pastelDreams",
-					"dark-pastelDreams",
-					"cyberpunkNeon",
-					"white-cyberpunkNeon",
-					"softPink",
-					"desertSand",
-				];
+		const [nameTheme, setNameTheme] = useState("dark");
+	const THEMES = ["dark", "cyberpunk", "pastelDreams", "light"];
+
+
+
 
 	const value = {
-
+		THEMES, 
+		nameTheme, 
+		setNameTheme,
 	};
 
 	return (

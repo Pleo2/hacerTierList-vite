@@ -5,6 +5,7 @@ import { ImagesSection } from "./components/layout/imagesSection/ImagesSection";
 import { TierList } from "./components/layout/tierList/TierList";
 import { ContentEditableText } from "./components/ContentEditableText";
 
+
 // contexts
 import { DragDropContext } from "react-beautiful-dnd";
 
