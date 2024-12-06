@@ -20,20 +20,6 @@ const ICON_SIZE = 16;
 
 export const Header = () => {
 	const { THEMES, nameTheme, setNameTheme } = useContext(ThemeContext);
-	const [styleLoaded, setStyleLoaded] = useState(false);
-
-	useEffect(() => {
-		const loadStyles = async () => {
-			try {
-					// biome-ignore lint/style/useTemplate: <explanation>
-					await import("../../../styles/" + nameTheme + ".css" + "?v=" + Date.now());
-			} catch (error) {
-				console.error(`Failed to load ${nameTheme}`, error);
-			}
-		};
-
-		loadStyles();
-	}, [nameTheme]);
 
 	return (
 		<>
@@ -79,11 +65,11 @@ export const Header = () => {
 						width={ICON_SIZE}
 					/>
 
-					<Select>
+					<Select className="font-mono">
 						<SelectTrigger className="w-[180px]">
 							<SelectValue placeholder={nameTheme} />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectContent className="bg-background">
 							{THEMES.map((theme) => (
 								<SelectItem
 									onFocus={() => {
