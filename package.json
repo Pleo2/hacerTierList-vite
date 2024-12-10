@@ -1,11 +1,11 @@
 {
-  "name": "hacer Tier List",
+  "name": "hacer-tier-list",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --watch",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
