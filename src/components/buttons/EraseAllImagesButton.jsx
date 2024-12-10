@@ -1,6 +1,7 @@
 import { ImagesContext } from "../../context/ImagesContext";
+import { Eraser } from "lucide-react";
 // --------------------------------------------------------
-import { EraserIcon } from "@radix-ui/react-icons";
+import { EraserIcon } from "lucide-react";
 import { useContext } from "react";
 import { memo } from "react";
 
@@ -20,7 +21,7 @@ export const EraserAllImagesButton = memo(() => {
 					type="button"
 					onClick={eraseImages}
 				>
-					<EraserIcon />
+					<Eraser />
 				</button>
 			</div>
 		</>

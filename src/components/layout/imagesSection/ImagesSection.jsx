@@ -4,6 +4,7 @@ import { Droppable} from "react-beautiful-dnd"
 import { Image } from "../../Images";
 import { useRef } from "react";
 import useDragAndDropFromDesktop from "../../../hooks/useDragAndDropFromDesktop";
+import { AnimatePresence } from "motion/react";
 
 export const ImagesSection = () => {
 	const itemsSection = useRef(null);
@@ -11,7 +12,12 @@ export const ImagesSection = () => {
 	const {handleDragOverFromDesktop, handleDropFromDesktop, isAllowFile} = useDragAndDropFromDesktop();
 	
 	return (
-		<div className="border-gray-800 border-2 w-full min-h-80 "  ref={itemsSection} onDragOver={handleDragOverFromDesktop} onDrop={handleDropFromDesktop}>
+		<div
+			className="border-gray-800 border-2 w-full min-h-80 "
+			ref={itemsSection}
+			onDragOver={handleDragOverFromDesktop}
+			onDrop={handleDropFromDesktop}
+		>
 			<Droppable
 				droppableId={"Row-5"}
 				type="IMAGE"
@@ -24,22 +30,24 @@ export const ImagesSection = () => {
 						ref={provided.innerRef}
 						{...provided.droppableProps}
 					>
-						{images.length > 0 ? (
-							images.map((item, index) => {
-								if (item.rowId === 5) {
-									return (
-										<Image
-											key={item.img}
-											_provided={provided}
-											item={item}
-											index={index}
-										/>
-									);
-								}
-							})
-						) : (
-							<></>
-						)}
+						<AnimatePresence>
+							{images.length > 0 ? (
+								images.map((item, index) => {
+									if (item.rowId === 5) {
+										return (
+											<Image
+												key={item.img}
+												_provided={provided}
+												item={item}
+												index={index}
+											/>
+										);
+									}
+								})
+							) : (
+								<></>
+							)}
+						</AnimatePresence>
 					</div>
 				)}
 			</Droppable>

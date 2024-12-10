@@ -1,6 +1,7 @@
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { ImagesContext } from "../../context/ImagesContext";
 import { useContext } from "react";
+import { RotateCcw } from "lucide-react";
 
 export const RestoreButton = () => {
 	const { setImages } = useContext(ImagesContext);
@@ -28,7 +29,7 @@ export const RestoreButton = () => {
 		<>
 			<div className=" border-b-4 border-yellow">
 				<button type="button" onClick={restoreImages}>
-					<ReloadIcon />
+					<RotateCcw />
 				</button>
 			</div>
 		</>

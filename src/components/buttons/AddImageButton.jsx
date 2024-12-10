@@ -1,6 +1,6 @@
-import { ImageIcon } from "@radix-ui/react-icons";
 import useImagesToCreateTierListItems from "../../hooks/useImagesToCreateTierListItems";
 import { memo } from "react";
+import { ImagePlus } from "lucide-react";
 
 export const AddImageButton = memo(() => {
 	const {handleImageChange} = useImagesToCreateTierListItems();
@@ -8,7 +8,7 @@ export const AddImageButton = memo(() => {
 	return (
 		<div className=" border-b-4 border-purple">
 			<label className="flex">
-				<ImageIcon className="" />
+				<ImagePlus className="" />
 				<input
 					type="file"
 					multiple

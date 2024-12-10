@@ -1,11 +1,10 @@
-import { PinBottomIcon } from "@radix-ui/react-icons";
-
+import { ImageDown } from "lucide-react";
 export const DownloadButton = ({downloadFn}) => {
 	return (
 		<>
 			<div className=" border-b-4 border-green">
 				<button type="button" onClick={downloadFn}>
-					<PinBottomIcon />
+					<ImageDown />
 				</button>
 			</div>
 		</>

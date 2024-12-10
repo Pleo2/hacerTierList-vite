@@ -6,6 +6,7 @@ export const ImagesContextProvider = ({ children }) => {
 	const [images, setImages] = useState([
 	]);
 	const [activeId, setActiveId] = useState(null);
+	const [isDrag, setIsDrag] = useState(false);
 
 	const addImagesToImagesSection = (image) => {
 		// Check if image already exists using a Set for efficient duplicate detection
@@ -24,6 +25,8 @@ export const ImagesContextProvider = ({ children }) => {
 	const value = {
 		images,
 		setImages,
+		isDrag, 
+		setIsDrag,
 		addImagesToImagesSection,
 		cleanImages,
 		activeId,
